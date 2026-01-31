@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Donut maker</title>
+    <meta name="description" content="ドーナツ制作体験シミュレーション">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+    <!-- Googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+    <!-- オリジナルCSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .highlight-en {
+            color: #89B69D;
+        }
+    </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donut maker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hamburger-wrapper sp-only">
+  <input type="checkbox" id="hamburgerToggle" class="hamburger-checkbox" />
+  <label for="hamburgerToggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+<div class="hamburger-menu">
+  <a href="#about">Donut makerについて</a>
+  <a href="#flow">体験のながれ</a>
+  <a href="#donuts">つくれるドーナツ</a>
+</div>
+</div>
+<header class="header">
+  <div class="header-inner">
+    <img src="images/logo.png" alt="Donut maker ロゴ" class="logo">
+
+    <!-- PCメニュー -->
+    <nav class="nav pc-only">
+      <a href="#about">Donut makerについて</a>
+      <a href="#flow">体験のながれ</a>
+      <a href="#donuts">つくれるドーナツ</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+  <!-- メインビジュアル -->
+<section class="main-visual">
+  <div class="main-visual-inner">
+    <p class="main-text">
+      Let's
+      try<br>
+      making<br>
+      donuts!
+    </p>
+
+    <img src="images/main.png" alt="メインビジュアル">
+  </div>
+</section>
+
+<img src="images/arch_1.png" alt="Donut maker" class="section-top-image">
+  <!-- 段落1 -->
+  <section id="about" class="section section-bg about">
+    <h2>Donut makerについて</h2>
+    <p>ドーナツショップのキッチンスタッフとして「商品」を作り上げる
+シミュレーション作品です。<br>好きなドーナツのレシピを選び、
+一つひとつの工程でお店に並べるクオリティ基準をクリアして
+ドーナツを作る体験をデジタル上でリアルな操作を通じて楽しめます。
+<br><br>
+このシミュレーションは普段は見ることのない「キッチンの世界」を、デジタル
+ならではの安心した環境で体験してもらいたいという思いから制作しました。
+ <br>教育の場でも使えるように、楽しさと学びの両方を大切にしています。
+    </p>
+  </section>
+  
+<img src="images/arch_2.png" alt="体験の流れ" class="section-top-image">
+  <!-- 段落2 -->
+  <section id="flow" class="section flow">
+    <h2>体験のながれ</h2>
+
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="flow-number">1</div>
+        <div class="flow-box">
+            <div class="flow-image-circle">
+          <img src="images/flow_1.png" alt="">
+            </div>
+          <h3>計量</h3>
+          <p>安定した味わいを生み出すには正確な計量から
+始まります。きちんと量ることで、毎回同じ品
+質のドーナツを作るための土台が整います。</p>
+        </div>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-number">2</div>
+        <div class="flow-box">
+            <div class="flow-image-circle">
+          <img src="images/flow_2.png" alt="">
+            </div>
+          <h3>生地作り</h3>
+          <p>生地に空気を含ませながらなめらかに整えてい
+きます。温度や混ぜ方の加減を見極めることで、
+良い食感や香りが生まれます。</p>
+        </div>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-number">3</div>
+        <div class="flow-box">
+            <div class="flow-image-circle">
+          <img src="images/flow_3.png" alt="">
+            </div>
+          <h3>揚げる</h3>
+          <p>成形した生地を油に入れて色や膨らみを見なが
+ら丁寧に揚げていきます。油の温度管理は重要
+で、理想の食感をつくるための鍵になります。</p>
+        </div>
+      </div>
+
+      <div class="flow-item">
+        <div class="flow-number">4</div>
+        <div class="flow-box">
+            <div class="flow-image-circle">
+          <img src="images/flow_4.png" alt="">
+            </div>
+          <h3>仕上げ</h3>
+          <p>揚げたてのドーナツに砂糖やチョコレートなど
+をほどこして完成です。見た目の美しさにも気
+を配りながら、丁寧に仕上げていきます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <img src="images/arch_3.png" alt="つくれるドーナツ" class="section-top-image">
+  <!-- 段落3 -->
+  <section id="donuts" class="section section-bg">
+  <h2>つくれるドーナツ</h2>
+    <div class="donut-list">
+      <div class="donut-item">
+        <img src="images/donut_1.jpg" alt="">
+        <h3>チョコレートドーナツ</h3>
+        <p>しっとりとした生地にチョコレートを丁寧にコーティングします。<br>
+          チョコの量で味わいと見た目が変化するため、適量を見極めることが大切です。</p>
+      </div>
+
+      <div class="donut-item">
+        <img src="images/donut_2.jpg" alt="">
+        <h3>クリームドーナツ</h3>
+        <p>ふんわりとした生地の中に濃厚なクリームを注入します。<br>
+          クリームの量で満足感が変わるため、入れすぎず、少なすぎず、最適な量を目指してください。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© 2026 Donut maker</p>
+</footer>
+
+</body>
+</html>

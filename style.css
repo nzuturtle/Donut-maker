@@ -1,0 +1,379 @@
+/* 共通 */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #F7E6D4;
+  color: #5A3A1A;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ヘッダー */
+.header {
+  background-color: #F7E6D4;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.logo {
+  height: 40px;
+   width: auto;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: auto;      
+    width: 45vw;       
+    max-width: 200px;  /* 大きくなりすぎ防止（任意） */
+    min-width: 150px;  /* 小さくなりすぎ防止（任意） */
+  }
+}
+.nav a {
+  color: #5A3A1A;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* ハンバーガー右上固定 + 影 */
+.hamburger-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+/* チェックボックス非表示 */
+.hamburger-checkbox {
+  display: none;
+}
+
+.hamburger {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 丸の縦中央 */
+  align-items: center;     /* 横中央 */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  position: relative;      /* span の絶対位置基準 */
+}
+
+/* 3本線 */
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #D45C0E;
+  transition: all 0.3s;
+  border-radius: 2px;      /* 角を少し丸める */
+}
+
+/* 3本線の間隔を flex の gap で調整 */
+.hamburger span:not(:last-child) {
+  margin-bottom: 6px; 
+}
+
+/* チェック時のバツ変形 */
+.hamburger-checkbox:checked ~ .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(0, 0);
+  position: absolute;
+  top: 50%;
+}
+
+.hamburger-checkbox:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0; /* 真ん中の線は消す */
+}
+
+.hamburger-checkbox:checked ~ .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(0, 0);
+  position: absolute;
+  top: 50%;
+}
+
+/* メニュー */
+.hamburger-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #F7E6D4;
+  border: 2px solid #D45C0E;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
+
+/* チェック時に表示 */
+.hamburger-checkbox:checked ~ .hamburger-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hamburger-menu a {
+  color: #5A3A1A;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+/* リンク先のセクションがターゲットになったらメニューを非表示に */
+#about:target ~ .hamburger-wrapper .hamburger-menu,
+#flow:target ~ .hamburger-wrapper .hamburger-menu,
+#donuts:target ~ .hamburger-wrapper .hamburger-menu {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+/* オプション：ハンバーガーのバツ線を元に戻す */
+#about:target ~ .hamburger-wrapper .hamburger span,
+#flow:target ~ .hamburger-wrapper .hamburger span,
+#donuts:target ~ .hamburger-wrapper .hamburger span {
+  transform: rotate(0deg) translate(0,0);
+  opacity: 1;
+  position: relative;
+  top: auto;
+}
+
+/* メインビジュアル */
+.main-visual {
+  background-color: #D45C0E;
+  padding: 10px 0;
+}
+
+.main-visual-inner {
+  position: relative;
+  max-width: 1200px;
+   height: 55vh;       /* 画面高さの70% */
+  min-height: 420px;  /* 最低限の高さ */
+}
+
+@media (max-width: 768px) {
+  .main-visual-inner {
+    height: 30vh;
+    min-height: 260px;
+  }
+}
+
+/* メイン画像 */
+.main-visual-inner img {
+  width: 65vw;          /* 画面幅の65% */
+  max-width: 520px;     /* 大きくなりすぎない */
+  min-width: 280px;     /* 小さくなりすぎない */
+
+  position: absolute;
+  right: 2vw;           /* 右側に少し余白 */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* テキスト */
+.main-text {
+  position: absolute;
+  left: 5%;
+  top: 40%;              /* やや中央より下 */
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: clamp(32px, 6vw, 84px);
+  font-weight: bold;
+  line-height: 1.2;
+  z-index: 3; 
+}
+
+@media (min-width: 769px) {
+  .main-visual-inner {
+    display: flex;
+    align-items: center;         /* 垂直中央 */
+    justify-content: space-between;
+    gap: 40px;
+    height: 65vh;                /* 画面高さに対して調整 */
+    min-height: 420px;
+    position: relative;
+    padding: 0 5%;
+  }
+
+  .main-text {
+    max-width: 45%;
+    margin-left: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* テキストを縦中央 */
+    height: 100%;                /* ← ここが重要: 親と同じ高さにする */
+  }
+
+  .main-visual-inner img {
+    width: 50%;
+    margin-right: -200px;
+    max-width: 520px;
+    height: auto;
+  }
+}
+.section-top-image {
+  width: 100%;     
+  display: block; 
+  margin: 0;        
+}
+.section + .section {
+  margin-top: -20px; /* 上のセクションに少し重ねる */
+}
+/* セクション */
+.section {
+  padding: 10px 40px;
+  padding-bottom: 40px;
+}
+.section h2 {
+  margin-top: 0px; 
+  margin-bottom: 24px; /* 下の余白 */
+}
+
+.section-bg {
+  background-color: #EEC29F;
+}
+
+.about p {
+  text-align: center;
+}
+
+/* 体験のながれ */
+.flow-list {
+  display: flex;
+  gap: 20px;
+}
+
+.flow-item {
+  text-align: center;
+  flex: 1;
+}
+
+.flow-number {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #FFF7ED;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.flow-box {
+  background: #FFF7ED;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* 体験のながれ：画像用の丸 */
+.flow-image-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #FFF7ED;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -30px auto 16px;
+}
+
+.flow-image-circle img {
+  width: 90%;
+  height: auto;
+}
+
+.flow p {
+  text-align: left;
+}
+/* ドーナツ */
+.donut-list {
+  display: flex;
+  gap: 20px;
+}
+
+.flow-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px; /* 下の余白を調整 */
+}
+
+.donut-item {
+  background: #FFF7ED;
+  padding: 16px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* 横中央 */
+  justify-content: center;  /* 縦中央 */
+  min-height: 350px;        /* 長方形の高さ */
+  box-sizing: border-box;
+}
+
+.donut-item img {
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.donut-item h3 {
+  margin-top: 0;
+  margin-bottom: 8px; /* 下の余白を調整 */
+}
+
+/* フッター */
+.footer {
+  background: #D45C0E;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+}
+
+
+/* レスポンシブ */
+.pc-only {
+  display: block;
+}
+
+.sp-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+
+  .sp-only {
+    display: flex;
+  }
+
+  .flow-list,
+  .donut-list {
+    flex-direction: column;
+  }
+}
